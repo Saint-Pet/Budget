@@ -83,5 +83,17 @@ public class Budget {
     public void setLimit(BigDecimal limit) {
         this.user_limit = limit;
     }
+
+    @Override
+    public String toString() {
+        return      "BudgetId: " + id +
+                    ", userId: " + userId +
+                    ", name: " + name +
+                    ", currencyCode: " + currencyCode +
+                    ", amount: " + amount +
+                    ", spent: " + spent +
+                    ", goal: " + goal +
+                    ", user_limit: " + user_limit;
+    }
 }
 
