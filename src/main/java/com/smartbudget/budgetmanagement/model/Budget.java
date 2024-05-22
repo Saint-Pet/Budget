@@ -19,10 +19,12 @@ public class Budget {
 
     @JoinColumn(name = "currency_code")
     private String currencyCode;
-    private BigDecimal amount;
-    private BigDecimal spent;
-    private BigDecimal goal;
-    private BigDecimal user_limit;
+    private BigDecimal amount = BigDecimal.ZERO;
+    private BigDecimal spent = BigDecimal.ZERO;
+    private BigDecimal goal = BigDecimal.ZERO;
+
+    @JoinColumn(name = "user_limit")
+    private BigDecimal userLimit = BigDecimal.ZERO;
 
     public Long getId() {
         return id;
@@ -76,12 +78,12 @@ public class Budget {
         this.goal = goal;
     }
 
-    public BigDecimal getLimit() {
-        return user_limit;
+    public BigDecimal getUserLimit() {
+        return userLimit;
     }
 
-    public void setLimit(BigDecimal limit) {
-        this.user_limit = limit;
+    public void setUserLimit(BigDecimal userLimit) {
+        this.userLimit = userLimit;
     }
 
     @Override
@@ -93,7 +95,7 @@ public class Budget {
                     ", amount: " + amount +
                     ", spent: " + spent +
                     ", goal: " + goal +
-                    ", user_limit: " + user_limit;
+                    ", userLimit: " + userLimit;
     }
 }
 

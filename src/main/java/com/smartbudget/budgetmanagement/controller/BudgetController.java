@@ -28,8 +28,6 @@ public class BudgetController {
 
     @PostMapping
     public ResponseEntity<Budget> createBudget(@RequestBody Budget budget) {
-        Budget createdBudget = budgetService.createBudget(budget);
-        kafkaProducerService.sendMessage("Created new budget: " + createdBudget.toString());
         return new ResponseEntity<>(budgetService.createBudget(budget), HttpStatus.CREATED);
     }
 
